@@ -2,7 +2,7 @@
     "name": "hopanel/domain-informer",
     "description": "HoPanel Component- Domain Parse and Information Tool",
     "require": {
-
+        "php": ">=5.6.9"
     },
     "autoload": {
         "psr-0": {

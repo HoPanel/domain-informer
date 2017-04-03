@@ -40,8 +40,6 @@ class Response
         $this->setField('result', $data);
     }
 
-
-
     private function setField($field, $val)
     {
         if (isset($this->result[$field])) {
