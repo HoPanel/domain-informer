@@ -1,4 +1,5 @@
 {
+    "version":"0.0.1",
     "name": "hopanel/domain-informer",
     "description": "HoPanel Component- Domain Parse and Information Tool",
     "require": {
