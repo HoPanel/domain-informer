@@ -32,6 +32,7 @@ class Parser
 
         if ($isDomain) {
             $this->response->setResult($this->getUrlInfo($urlString));
+
         }
 
         return $this->response;
@@ -53,7 +54,18 @@ class Parser
 
         $parsed = parse_url($urlString);
 
+        $parsed['dns']['nameservers'] = $this->getDnsInfo($parsed);
+
         return array_merge($defaults, $parsed);
+    }
+
+    private function getDnsInfo($parsedUrl)
+    {
+        $nameservers = array_reduce(dns_get_record($parsedUrl['host'], DNS_NS), function ($r, $i) {
+            $r[] = $i['target'];
+            return $r;
+        });
+        return !$nameservers ? [] : $nameservers;
     }
 
     public function checkIp($urlString)
