@@ -48,4 +48,8 @@ class Response
         return $this;
     }
 
+    public function getResult()
+    {
+        return $this->result;
+    }
 }

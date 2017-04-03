@@ -78,4 +78,8 @@ class Parser
         return preg_match(self::DOMAIN_REGEX_VALID_CHARS, $urlString);
     }
 
+    public function getResult()
+    {
+        return $this->response->getResult();
+    }
 }
