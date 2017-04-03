@@ -1,6 +1,6 @@
 {
-    "name": "projekod/domain-informer",
-    "description": "Domain parse and information tool",
+    "name": "hopanel/domain-informer",
+    "description": "HoPanel Component- Domain Parse and Information Tool",
     "require": {
 
     },
@@ -8,5 +8,28 @@
         "psr-0": {
             "Hodi": "src/"
         }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Projekod",
+            "homepage": "http://github.com/projekod",
+            "role": "Organization"
+        },
+        {
+            "name": "Ali Gündoğdu",
+            "homepage": "http://github.com/aligungodu",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "parse domain",
+        "parse url",
+        "whois domain"
+    ],
+    "homepage": "https://github.com/HoPanel/domain-informer",
+    "support": {
+        "issues": "https://github.com/HoPanel/domain-informer/issues",
+        "source": "https://github.com/HoPanel/domain-informer"
     }
 }
