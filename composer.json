@@ -1,0 +1,12 @@
+{
+    "name": "projekod/domain-informer",
+    "description": "Domain parse and information tool",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {
+            "Hodi": "src/"
+        }
+    }
+}
