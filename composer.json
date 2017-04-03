@@ -32,5 +32,8 @@
     "support": {
         "issues": "https://github.com/HoPanel/domain-informer/issues",
         "source": "https://github.com/HoPanel/domain-informer"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
     }
 }

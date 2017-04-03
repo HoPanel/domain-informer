@@ -57,3 +57,10 @@ Hodi\Response Object
 
 )
 ```
+
+### Unit Tests
+
+```bash
+composer install
+vendor/bin/phpunit tests
+```
