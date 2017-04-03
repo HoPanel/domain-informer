@@ -45,7 +45,6 @@ class Response
         if (isset($this->result[$field])) {
             $this->result[$field] = $val;
         }
-        echo "\n";
         return $this;
     }
 
