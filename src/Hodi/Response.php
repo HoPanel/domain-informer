@@ -5,15 +5,11 @@ namespace Hodi;
 class Response
 {
 
-    const RESONSE_TYPE_IP = 2;
-    const RESONSE_TYPE_DOMAIN = 1;
-
     protected $result = [
         'created_at' => null,
         'status' => false,
         'code' => null,
         'error_message' => null,
-        'type' => null,
         'result' => [
 
         ]
@@ -44,17 +40,14 @@ class Response
         $this->setField('result', $data);
     }
 
-    public function setType($val)
-    {
-        $val = (is_numeric($val) && $val <= 2 && $val > 0) ? $val : null;
-        $this->setField('type', $val);
-    }
+
 
     private function setField($field, $val)
     {
         if (isset($this->result[$field])) {
             $this->result[$field] = $val;
         }
+        echo "\n";
         return $this;
     }
 

@@ -18,23 +18,15 @@ class Parser
 
     public function parseUrl($urlString)
     {
-        $vanillaUrl = $urlString;
 
         $isDomain = $this->checkDomain($urlString);
         $isIp = $this->checkIp($urlString);
 
         if (!$isDomain && !$isIp) {
-            $this->response->setType(null);
             $this->response->setErrorMessage("No valid string");
             $this->response->setStatus(0);
             return $this->response;
         }
-
-        $type = Response::RESONSE_TYPE_DOMAIN;
-        if ($isIp) {
-            $type = Response::RESONSE_TYPE_IP;
-        }
-        $this->response->setType($type);
 
         $this->response->setStatus(1);
 
