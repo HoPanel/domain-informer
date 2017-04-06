@@ -5,7 +5,11 @@ namespace Hodi;
 class Parser
 {
 
+    protected $haydar;
+
     protected $response;
+
+    protected $objectResult = true;
 
     const DOMAIN_REGEX_VALID_CHARS = "/(https|http|ftp)\:\/\/|([a-z0-9A-Z]+\.[a-z0-9A-Z]+\.[a-zA-Z]{2,4})|([a-z0-9A-Z]+\.[a-zA-Z]{2,4})|\?([a-zA-Z0-9]+[\&\=\#a-z]+)/i";
 
@@ -13,7 +17,7 @@ class Parser
 
     public function __construct()
     {
-        $this->response = new Response();
+        $this->response = new HodiResponse();
     }
 
     public function parseUrl($urlString)
@@ -23,19 +27,25 @@ class Parser
         $isIp = $this->checkIp($urlString);
 
         if (!$isDomain && !$isIp) {
-            $this->response->setErrorMessage("No valid string");
+            $this->response->setErrorMessage("No valid url or ip");
             $this->response->setStatus(0);
             return $this->response;
         }
 
         $this->response->setStatus(1);
+        $this->response->setIsIp(true);
+        $this->response->setIsDomain(false);
 
         if ($isDomain) {
-            $this->response->setResult($this->getUrlInfo($urlString));
+
+            $this->response->setIsIp(false);
+            $this->response->setIsDomain(true);
+            $domainInfo = $this->getUrlInfo($urlString);
+            $this->response->fill($domainInfo);
 
         }
 
-        return $this->response;
+        return ($this->objectResult === true) ? $this->response : $this->response->toArray();
     }
 
     private function getUrlInfo($urlString)
@@ -53,17 +63,16 @@ class Parser
         ];
 
         $parsed = parse_url($urlString);
-
-        $parsed['dns']['nameservers'] = $this->getDnsInfo($parsed);
+        $parsed['nameservers'] = $this->getDnsInfo($parsed);
 
         return array_merge($defaults, $parsed);
     }
 
     private function getDnsInfo($parsedUrl)
     {
-        $nameservers = array_reduce(dns_get_record($parsedUrl['host'], DNS_NS), function ($r, $i) {
-            $r[] = $i['target'];
-            return $r;
+        $nameservers = array_reduce(dns_get_record($parsedUrl['host'], DNS_NS), function ($result, $item) {
+            $result[] = $item['target'];
+            return $result;
         });
         return !$nameservers ? [] : $nameservers;
     }
@@ -78,8 +87,16 @@ class Parser
         return preg_match(self::DOMAIN_REGEX_VALID_CHARS, $urlString);
     }
 
-    public function getResult()
+    public function isObjectResult()
     {
-        return $this->response->getResult();
+        return $this->objectResult;
     }
+
+    public function setObjectResult($objectResult)
+    {
+        $this->objectResult = $objectResult;
+        return $this;
+    }
+
+
 }
