@@ -54,6 +54,7 @@ class HodiResponse
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -65,6 +66,7 @@ class HodiResponse
     public function setErrorMessage($errorMessage)
     {
         $this->errorMessage = $errorMessage;
+
         return $this;
     }
 
@@ -95,6 +97,7 @@ class HodiResponse
     public function setData($data)
     {
         $this->data = $data;
+
         return $this;
     }
 
@@ -106,6 +109,7 @@ class HodiResponse
     public function setIsDomain($isDomain)
     {
         $this->isDomain = $isDomain;
+
         return $this;
     }
 
@@ -117,6 +121,7 @@ class HodiResponse
     public function setIsIp($isIp)
     {
         $this->isIp = $isIp;
+
         return $this;
     }
 
@@ -128,6 +133,7 @@ class HodiResponse
     public function setDomainScheme($domainScheme)
     {
         $this->domainScheme = $domainScheme;
+
         return $this;
     }
 
@@ -139,6 +145,7 @@ class HodiResponse
     public function setDomainHost($domainHost)
     {
         $this->domainHost = $domainHost;
+
         return $this;
     }
 
@@ -150,6 +157,7 @@ class HodiResponse
     public function setDomainPort($domainPort)
     {
         $this->domainPort = $domainPort;
+
         return $this;
     }
 
@@ -161,6 +169,7 @@ class HodiResponse
     public function setDomainUser($domainUser)
     {
         $this->domainUser = $domainUser;
+
         return $this;
     }
 
@@ -172,6 +181,7 @@ class HodiResponse
     public function setDomainPass($domainPass)
     {
         $this->domainPass = $domainPass;
+
         return $this;
     }
 
@@ -183,6 +193,7 @@ class HodiResponse
     public function setDomainPath($domainPath)
     {
         $this->domainPath = $domainPath;
+
         return $this;
     }
 
@@ -194,6 +205,7 @@ class HodiResponse
     public function setDomainQuery($domainQuery)
     {
         $this->domainQuery = $domainQuery;
+
         return $this;
     }
 
@@ -205,6 +217,7 @@ class HodiResponse
     public function setDomainFragment($domainFragment)
     {
         $this->domainFragment = $domainFragment;
+
         return $this;
     }
 
@@ -216,6 +229,7 @@ class HodiResponse
     public function setDomainNameservers($domainNameservers)
     {
         $this->domainNameservers = $domainNameservers;
+
         return $this;
     }
 }

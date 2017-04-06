@@ -27,6 +27,7 @@ class Parser
         if (!$isDomain && !$isIp) {
             $this->response->setErrorMessage('No valid url or ip');
             $this->response->setStatus(0);
+
             return $this->response;
         }
 
@@ -67,8 +68,10 @@ class Parser
     {
         $nameservers = array_reduce(dns_get_record($parsedUrl['host'], DNS_NS), function ($result, $item) {
             $result[] = $item['target'];
+
             return $result;
         });
+
         return !$nameservers ? [] : $nameservers;
     }
 
@@ -90,6 +93,7 @@ class Parser
     public function setObjectResult($objectResult)
     {
         $this->objectResult = $objectResult;
+
         return $this;
     }
 }
