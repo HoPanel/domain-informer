@@ -46,7 +46,7 @@ class HodiResponse
 
     private function ifSet($key, $default = null)
     {
-        return isset($this->data[$key]) ? $this->data[$key] : $default;
+        return array_key_exists($key, $this->data) ? $this->data[$key] : $default;
     }
 
 
