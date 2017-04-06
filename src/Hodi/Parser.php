@@ -4,7 +4,6 @@ namespace Hodi;
 
 class Parser
 {
-
     protected $haydar;
 
     protected $response;
@@ -22,12 +21,11 @@ class Parser
 
     public function parseUrl($urlString)
     {
-
         $isDomain = $this->checkDomain($urlString);
         $isIp = $this->checkIp($urlString);
 
         if (!$isDomain && !$isIp) {
-            $this->response->setErrorMessage("No valid url or ip");
+            $this->response->setErrorMessage('No valid url or ip');
             $this->response->setStatus(0);
             return $this->response;
         }
@@ -37,12 +35,10 @@ class Parser
         $this->response->setIsDomain(false);
 
         if ($isDomain) {
-
             $this->response->setIsIp(false);
             $this->response->setIsDomain(true);
             $domainInfo = $this->getUrlInfo($urlString);
             $this->response->fill($domainInfo);
-
         }
 
         return ($this->objectResult === true) ? $this->response : $this->response->toArray();
@@ -50,7 +46,6 @@ class Parser
 
     private function getUrlInfo($urlString)
     {
-
         $defaults = [
             'scheme' => null,
             'host' => null,
@@ -97,6 +92,4 @@ class Parser
         $this->objectResult = $objectResult;
         return $this;
     }
-
-
 }

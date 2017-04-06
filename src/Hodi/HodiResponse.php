@@ -4,7 +4,6 @@ namespace Hodi;
 
 class HodiResponse
 {
-
     private $data = [];
     protected $status = false;
     protected $errorMessage = null;
@@ -20,8 +19,7 @@ class HodiResponse
     protected $domainFragment = null;
     protected $domainNameservers = [];
 
-
-    public function __construct(Array $data = [])
+    public function __construct(array $data = [])
     {
         if ($data) {
             $this->fill($data);
@@ -41,14 +39,12 @@ class HodiResponse
         $this->domainQuery = $this->ifSet('query');
         $this->domainFragment = $this->ifSet('fragment');
         $this->domainNameservers = $this->ifSet('nameservers', []);
-
     }
 
     private function ifSet($key, $default = null)
     {
         return array_key_exists($key, $this->data) ? $this->data[$key] : $default;
     }
-
 
     public function isStatus()
     {
@@ -61,12 +57,10 @@ class HodiResponse
         return $this;
     }
 
-
     public function getErrorMessage()
     {
         return $this->errorMessage;
     }
-
 
     public function setErrorMessage($errorMessage)
     {
@@ -108,7 +102,6 @@ class HodiResponse
     {
         return $this->isDomain;
     }
-
 
     public function setIsDomain($isDomain)
     {
@@ -198,7 +191,6 @@ class HodiResponse
         return $this->domainQuery;
     }
 
-
     public function setDomainQuery($domainQuery)
     {
         $this->domainQuery = $domainQuery;
@@ -226,6 +218,4 @@ class HodiResponse
         $this->domainNameservers = $domainNameservers;
         return $this;
     }
-
-
 }
