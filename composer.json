@@ -15,12 +15,20 @@
         {
             "name": "Projekod",
             "homepage": "http://github.com/projekod",
-            "role": "Organization"
+            "role": "Organization",
+            "email": "selam@projekod.com"
         },
         {
             "name": "Ali Gündoğdu",
             "homepage": "http://github.com/aligungodu",
-            "role": "Developer"
+            "role": "Developer",
+            "email": "ali@projekod.com"
+        },
+        {
+            "name": "Güven Atbakan",
+            "homepage": "https://github.com/shibby",
+            "role": "Kaynana,Tester",
+            "email": "guven@atbakan.com"
         }
     ],
     "keywords": [
