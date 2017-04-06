@@ -19,44 +19,49 @@ print_r($result);
 ```
 
 ```
-Hodi\Response Object
-(
-    [result:protected] => Array
-        (
-            [created_at] => DateTime Object
-                (
-                    [date] => 2017-04-03 17:01:59.000000
-                    [timezone_type] => 3
-                    [timezone] => Europe/Moscow
-                )
-
-            [status] => 1
-            [code] =>
-            [error_message] =>
-            [result] => Array
-                (
-                    [scheme] => https
-                    [host] => subdomain.domain.exp
-                    [port] => 9090
-                    [user] => user
-                    [pass] => pass
-                    [path] => /path/to/file.html
-                    [query] => query=queryt
-                    [fragment] => hash
-                    [dns] => Array
-                        (
-                            [nameservers] => Array
-                                (
-                                )
-
-                        )
-
-                )
-
-        )
-
+Hodi\HodiResponse Object                                   
+(                                                          
+    [data:Hodi\HodiResponse:private] => Array              
+        (                                                  
+            [scheme] => https                              
+            [host] => subdomain.domain.exp                 
+            [port] => 9090                                 
+            [user] => user                                 
+            [pass] => pass                                 
+            [path] => /path/to/file.html                   
+            [query] => query=queryt                        
+            [fragment] => hash                             
+            [nameservers] => Array                         
+                (                                          
+                )                                          
+                                                           
+        )                                                  
+                                                           
+    [status:protected] => 1                                
+    [errorMessage:protected] =>                            
+    [isDomain:protected] => 1                              
+    [isIp:protected] =>                                    
+    [domainScheme:protected] => https                      
+    [domainHost:protected] => subdomain.domain.exp         
+    [domainPort:protected] => 9090                         
+    [domainUser:protected] => user                         
+    [domainPass:protected] => pass                         
+    [domainPath:protected] => /path/to/file.html           
+    [domainQuery:protected] => query=queryt                
+    [domainFragment:protected] => hash                     
+    [domainNameservers:protected] => Array                 
+        (                                                  
+        )                                                  
+                                                           
 )
 ```
+
+Array sonuç almak için
+
+```
+$parser->toArray();
+```
+
 
 ### Unit Tests
 
