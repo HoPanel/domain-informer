@@ -21,6 +21,8 @@ class Parser
 
     public function parseUrl($urlString)
     {
+        $urlString = $this->modifyUrlString($urlString);
+
         $isDomain = $this->checkDomain($urlString);
         $isIp = $this->checkIp($urlString);
 
@@ -43,6 +45,13 @@ class Parser
         }
 
         return ($this->objectResult === true) ? $this->response : $this->response->toArray();
+    }
+
+    private function modifyUrlString($urlString)
+    {
+        preg_match('/(https|http|ftp)(.*)/U', $urlString, $result);
+
+        return $result ? $urlString : 'http://'.$urlString;
     }
 
     private function getUrlInfo($urlString)

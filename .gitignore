@@ -2,3 +2,4 @@
 
 /vendor/
 /demo/
+.php_cs.cache
