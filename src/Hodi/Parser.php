@@ -21,9 +21,9 @@ class Parser
 
     public function parseUrl($urlString)
     {
-        $urlString = $this->modifyUrlString($urlString);
-
+//        $urlString = $this->modifyUrlString($urlString);
         $isDomain = $this->checkDomain($urlString);
+
         $isIp = $this->checkIp($urlString);
 
         if (!$isDomain && !$isIp) {
@@ -39,8 +39,8 @@ class Parser
 
         if ($isDomain) {
             $this->response->setIsIp(false);
-            $this->response->setIsDomain(true);
             $domainInfo = $this->getUrlInfo($urlString);
+            $this->response->setIsDomain(true);
             $this->response->fill($domainInfo);
         }
 
@@ -50,8 +50,7 @@ class Parser
     private function modifyUrlString($urlString)
     {
         preg_match('/(https|http|ftp)(.*)/U', $urlString, $result);
-
-        return $result ? $urlString : 'http://'.$urlString;
+        return $result ? $urlString : 'http://' . $urlString;
     }
 
     private function getUrlInfo($urlString)
@@ -86,12 +85,14 @@ class Parser
 
     public function checkIp($urlString)
     {
-        return preg_match(self::IP_REGEX, $urlString);
+        preg_match(self::IP_REGEX, $urlString, $result);
+        return $result ? true : false;
     }
 
     public function checkDomain($urlString)
     {
-        return preg_match(self::DOMAIN_REGEX_VALID_CHARS, $urlString);
+        preg_match(self::DOMAIN_REGEX_VALID_CHARS, $urlString, $result);
+        return $result ? true : false;
     }
 
     public function isObjectResult()
